@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+     body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f4f8;
+      padding: 40px;
+      margin: 0;
+    }
+
+    h1 {
+      color: #333;
+      text-align: center;
+      font-size: 36px;
+    }
+
+    p {
+      font-size: 18px;
+      color: #555;
+      max-width: 700px;
+      margin: 20px auto;
+      text-align: center;
+    }
+
+    input[type="text"] {
+      padding: 10px;
+      margin: 10px;
+      width: 250px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 10px;
+      font-size: 16px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    #output {
+      text-align: center;
+      margin-top: 30px;
+      color: #222;
+    }
+    </style>
+</head>
+ 
+<body>
+    <h1>Front End Page</h1>
+    <p>
+      hello fronted js 
+
+    </p>
+ 
+    <input type="text" id="inputOne" placeholder="Type something here...">
+    <input type="text" id="inputTwo" placeholder="Type something else...">
+    <br>
+ 
+    <h2 id="output"></h2>
+ 
+    <button onclick="fetchTeachers()">Teachers</button>
+    <button onclick="fetchStudents  ()">Students</button>
+ 
+    <script>
+      
+ 
+        async function fetchTeachers() {
+ 
+            const headers = {
+                method: "GET",
+            };
+            const teachersList = await fetch(
+                "http://localhost:3001/teachers",
+                 headers
+                );
+ 
+            const x = await teachersList.text();
+            console.log(x);
+        }
+ 
+        
+        async function fetchStudents() {
+            
+            const headers = {
+                method: "GET"
+            };
+ 
+            const studentList = await fetch(
+                "http://localhost:3001/students",
+                headers
+            );
+ 
+            const x = await studentList.text();
+            console.log(x);
+        }
+    </script>
+</body>
+ 
+</html>                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                

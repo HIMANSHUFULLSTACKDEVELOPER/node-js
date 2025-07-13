@@ -1,0 +1,141 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Front-end</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      color: #333;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+    }
+ 
+    .container {
+      max-width: 600px;
+      width: 100%;
+      background: #ffffff;
+      padding: 30px 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+ 
+    h1 {
+      text-align: center;
+      color: #007bff;
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+ 
+    p {
+      text-align: center;
+      font-size: 16px;
+      color: #555;
+    }
+ 
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+ 
+    button {
+      padding: 10px 20px;
+      margin: 10px 5px 0 0;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+ 
+    button:hover {
+      background-color: #0056b3;
+    }
+ 
+    #output {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #e8f0fe;
+      color: #333;
+      border-left: 4px solid #007bff;
+      border-radius: 5px;
+      font-size: 17px;
+    }
+ 
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 24px;
+      }
+ 
+      button {
+        width: 100%;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+ 
+<body>
+  <div class="container">
+    <h1>FRONTEND DEVELOPMENT</h1>
+    <p>
+      Front-end developers focus on ensuring that
+      the user experience is smooth, responsive, and accessible across different devices and browsers.
+    </p>
+ 
+    <input type="text" id="input-one" placeholder="Type a name or message here..." />
+ 
+    <div style="margin-top: 10px;">
+      <button onclick="postMessage()">POST</button>
+      <button onclick="getMessage()">GET</button>
+    </div>
+ 
+    <div id="output"></div>
+  </div>
+ 
+  <script>
+    let namsMsArray = [];
+ 
+    function postMessage() {
+      const inputValue = document.getElementById("input-one").value;
+ 
+      if (inputValue.trim() === "") {
+        alert("Please enter something before posting.");
+        return;
+      }
+ 
+     
+      const newEntry = {
+        name: inputValue,
+        msg: inputValue
+      };
+ 
+      namsMsArray.push(newEntry);
+      document.getElementById("input-one").value = "";
+      alert("Message posted!");
+    }
+ 
+    function getMessage() {
+      let output = "";
+ 
+      for (let i = 0; i < namsMsArray.length; i++) {
+        output += `name: ${namsMsArray[i].name} — message: ${namsMsArray[i].msg}<br>`;
+      }
+ 
+      document.getElementById("output").innerHTML = output || "No messages yet.";
+    }
+  </script>
+</body>
+</html>
