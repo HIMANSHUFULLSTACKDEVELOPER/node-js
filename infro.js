@@ -1,63 +1,65 @@
 const http = require("http");
-const url = require("url");
+ 
+
+let studentData = [
+ 
+];
+ 
+const teachers = [
+  { name: "Ayush B Sir", subject: "Programming" },
+  { name: "Yogesh Y Sir", subject: "Prompt Engineering" },
+  { name: "Yash Sir", subject: "RDBMS" },
+];0
+
  
 const server = http.createServer((req, res) => {
-  console.log(req.headers)
-  const dataStudent = [
-    {
-      message: "Hello World",
-      name: "himanshu",
-    },
-    {
-      message: "Hello World",
-      name: "achal",
-    },  {
-      message: "Hello World",
-      name: "ayush",
-    },
-  ];
+  console.log(req.headers);
  
-  const dataTeacher = [
-    {
-      subject: "logical",
-      name: "Ayush B Sir",
-    },
-    {
-      subject: "mobile app",
-      name: "ayush Sir",
-    },
-  ];
- 
+
   res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
- 
-  if (req.url === "/students") {
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, DELETE, OPTIONS"
+  );
+  res.setHeader("Access-Control-Allow-Headers", "Content-Type");
+   
+
+  if (req.method === "GET" && req.url === "/students") {
     res.writeHead(200, { "Content-Type": "application/json" });
-    res.end(JSON.stringify(dataStudent));
-    return;
+    res.end(JSON.stringify(studentData));
  
-  } else if (req.url === "/teachers") {
+
+  } else if (req.method === "POST" && req.url === "/students") {
+    let stringData = "";
+    req.on("data", (chunk) => {
+      stringData += chunk.toString();
+    });
+    req.on("end", () => {
+      try {
+        const student = JSON.parse(stringData);
+        studentData.push(student);
+        console.log("Updated studentData:", studentData);
+        res.writeHead(201, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ message: "Student added successfully" }));
+      } catch (err) {
+        res.writeHead(400, { "Content-Type": "application/json" });
+        res.end(JSON.stringify({ error: "Invalid JSON" }));
+      }
+    });
+
+  } else if (req.method === "GET" && req.url === "/teachers") {
     res.writeHead(200, { "Content-Type": "application/json" });
-    res.end(JSON.stringify(dataTeacher));
-    return;
- 
- 
-  } else if (req.url === "/") {
-    res.writeHead(200, { "Content-Type": "text/html" });
-    res.end("<h1>Hello and Welcome to node js class</h1>");
-    return;
- 
+    res.end(JSON.stringify(teachers));
+
   } else {
-    res.writeHead(200, { "Content-Type": "text/html" });
-    res.end("<h1>404 Not Found</h1>");
-    return;
+    res.writeHead(404, { "Content-Type": "application/json" });
+    res.end(JSON.stringify({ message: "Invalid request" }));
   }
-  
 });
  
 server.listen(3001, () => {
-  console.log(
-    "Server is running on port 3001 http://localhost:3001 "
-  );
+  console.log("Server is running on http://localhost:3001");
 });
+ 
+ 
  

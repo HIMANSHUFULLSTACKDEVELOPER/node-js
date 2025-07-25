@@ -2,29 +2,31 @@ const http = require("http");
 const express = require("express");
 const app = express();
 const cors = require("cors");
-
+const { type } = require("os");
 app.use(cors());
 app.use(express.json());
 
-let employeeData = [
+let menutest = [
   {
     id: 1,
     name: "Himashu Patil",
-    email: "himanshu@example.com",
+    price: 12000,
+    type: "south Indian"
   },
   {
     id: 2,
     name: "Divyanshu Thakare",
-    email: "divyanshu@example.com",
+    price: 15000,
+    type: "north Indian"
   },
 ];
 
 
 // middleware to check password and user
-app.use("/engineers", (req, res, next) => {
+app.use("/menu", (req, res, next) => {
   if (req.method === "GET") {
     const { user, pass } = req.query;
-    if (user === "himanshu" && pass === "46875") {
+    if (user === "admin" && pass === "menutest") {
       next();
     } else {
       res.status(401).send("unauthorized access attempt");
@@ -32,21 +34,21 @@ app.use("/engineers", (req, res, next) => {
   } else {
     next();
   }
-  console.log("Login successful, welcome to the engineers' portal!");
+  console.log("Login successful, welcome to the menu portal!");
 });
 
-app.get("/engineers", (req, res) => {
-  res.send(employeeData);
+app.get("/menu", (req, res) => {
+  res.send(menutest);
 });
 
 
-app.post("/engineer", (req, res) => {
-  const newEmployee = req.body;
-  employeeData.push(newEmployee);
+app.post("/menus", (req, res) => {
+  const newMenu = req.body;
+  menutest.push(newMenu);
   res.send("Data received successfully, Yahoo!");
 });
 
 const server = http.createServer(app);
-server.listen(4000, () => {
-  console.log("Server is running on port 4000 http://localhost:4000");
+server.listen(3000, () => {
+  console.log("Server is running on port 3000 http://localhost:3000");
 });

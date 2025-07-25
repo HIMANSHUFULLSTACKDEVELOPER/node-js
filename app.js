@@ -1,22 +1,33 @@
 const http = require("http");
- 
+const url = require("url");
+
 const server = http.createServer((req, res) => {
-  // CORS headers
+ 
   res.setHeader("Access-Control-Allow-Origin", "*");
-  res.setHeader("Access-Control-Allow-Methods", "GET, POST");
-  res.setHeader("Access-Control-Allow-Headers", "Content-Type, Authorization");
- 
-  res.writeHead(200, { "Content-Type": "text/html" }); // <-- fixed content-type
- 
-  if (req.url === "/hello") {
-    res.end("<h2>Hello, World!</h2>");
-  } else if (req.url === "/bye") {
-    res.end("<h2>Goodbye, World!</h2>");
-  } else {
-    res.end("<h2>Default Response from Node.js Server</h2>");
+  res.setHeader("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE");
+
+  const parsedUrl = url.parse(req.url, true); 
+  const pathname = parsedUrl.pathname;
+  const query = parsedUrl.query;
+
+  if (query?.name === "invalid") {
+    res.writeHead(400, { 'Content-Type': 'text/plain' });
+    res.end(`Invalid name`);
+    return;
   }
+
+  
+  if (pathname === "/himanshu") {
+    res.writeHead(200, { 'Content-Type': 'text/plain' });
+    res.end("HELLO World");
+    return;
+  }
+
+  
+  res.writeHead(404, { 'Content-Type': 'text/plain' });
+  res.end(`Invalid details`);
 });
 
 server.listen(3000, () => {
-  console.log("Server is running on http://localhost:3000");
+  console.log("Server running at http://localhost:3000/");
 });
