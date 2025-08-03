@@ -1,0 +1,176 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Front-end</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      color: #333;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+    }
+ 
+    .container {
+      max-width: 600px;
+      width: 100%;
+      background: #ffffff;
+      padding: 30px 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+ 
+    h1 {
+      text-align: center;
+      color: #d88a15;
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+ 
+    p {
+      text-align: center;
+      font-size: 16px;
+      color: #555;
+    }
+ 
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+       input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+ 
+ 
+    button {
+      padding: 10px 20px;
+      margin: 10px 5px 0 0;
+      background-color: #d88a15;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+ 
+    button:hover {
+      background-color:#bb8b43;
+    }
+ 
+    #output {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #e8f0fe;
+      color: #333;
+      border-left: 4px solid #d88a15;
+      border-radius: 5px;
+      font-size: 17px;
+    }
+ 
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 24px;
+      }
+ 
+      button {
+        width: 100%;
+        margin-top: 10px;
+      }
+    }
+
+  </style>
+</head>
+ 
+<body>
+  <div class="container">
+    <h1>FRONTEND DEVELOPMENT</h1>
+    <p>
+      Front-end developers focus on ensuring that
+      the user experience is smooth, responsive, and accessible across different devices and browsers.
+    </p>
+ 
+    <input type="number" id="one-input" placeholder="Type a number" />
+     <input type="number" id="two-input" placeholder="Type a number" />
+   <input type="text" id="three-input" placeholder="operation" /> 
+ 
+ 
+    <div style="margin-top: 10px;">
+
+    <button onclick="operation()">operation </button>
+
+    </div>
+ 
+    <div id="output"></div>
+
+  </div>
+ 
+<script>
+
+
+function add(){
+let  numerone = parseInt(document.getElementById("one-input").value);
+let numerotwo = parseInt(document.getElementById("two-input").value);
+const result  = parseInt( numerone) + parseInt(numerotwo);
+document.getElementById("output").innerHTML = result;
+
+}
+function sub(){
+let  numerone = parseInt(document.getElementById("one-input").value);
+let numerotwo = parseInt(document.getElementById("two-input").value);
+const result = parseInt( numerone) - parseInt(numerotwo)
+document.getElementById("output").innerHTML = result;
+}
+function mul(){
+let  numerone = parseInt(document.getElementById("one-input").value);
+let numerotwo = parseInt(document.getElementById("two-input").value);
+const result = parseInt( numerone) * parseInt(numerotwo)
+document.getElementById("output").innerHTML = result;
+}
+
+
+
+function div(){
+let  numerone = parseInt(document.getElementById("one-input").value);
+let numerotwo = parseInt(document.getElementById("two-input").value);
+const result = parseInt( numerone) / parseInt(numerotwo)
+document.getElementById("output").innerHTML = result;
+}
+function operation() {
+let operation = document.getElementById("three-input").value;
+if (operation == "add") {
+add()
+}
+else if(operation == "sub") {
+sub()
+}
+else if(operation == "mul") {
+mul()
+}
+else if(operation == "div") {
+div()
+}
+else{
+alert("enter a number")
+}
+}
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Front-end</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      color: #333;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 600px;
+      width: 100%;
+      background: #ffffff;
+      padding: 30px 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #d88a15;
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      text-align: center;
+      font-size: 16px;
+      color: #555;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+
+    button {
+      padding: 10px 20px;
+      margin: 10px 5px 0 0;
+      background-color: #d88a15;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #bb8b43;
+    }
+
+    #output {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #e8f0fe;
+      color: #333;
+      border-left: 4px solid #d88a15;
+      border-radius: 5px;
+      font-size: 17px;
+    }    #output1 {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #e8f0fe;
+      color: #333;
+      border-left: 4px solid #d88a15;
+      border-radius: 5px;
+      font-size: 17px;
+    }
+    #output2 {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #e8f0fe;
+      color: #333;
+      border-left: 4px solid #d88a15;
+      border-radius: 5px;
+      font-size: 17px;
+    }
+
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 24px;
+      }
+
+      button {
+        width: 100%;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>lottery game</h1>
+    <p>
+      Front-end developers focus on ensuring that
+      the user experience is smooth, responsive, and accessible across different devices and browsers.
+    </p>
+
+    <!-- <input type="text" id="one-input" placeholder="Enter a message" /> -->
+
+
+    <div style="margin-top: 10px;">
+
+      
+    <!-- <button onclick="welcome()">name</button>
+ <button onclick="date()">name - age</button>
+  <button onclick="fullnames()">Full Name </button> -->
+    <button onclick="randnumberone()">game1 </button>
+    <button onclick="randnumbertwo()">game 2 </button>
+  <button onclick="randnumberthree()">game 3 </button>
+    </div>
+
+    <div id="output"></div> 
+     <div id="output1"></div> 
+      <div id="output2"></div> 
+
+  </div>
+
+  <script>
+// random function
+function ranmnumbers(){
+  let numbers = Math.floor(Math.random() * 10);
+
+  return numbers;
+}
+
+// random1 
+function randnumberone(){
+  let c = ranmnumbers() 
+   document.getElementById("output").innerHTML = c;
+
+
+}
+// random2
+function randnumbertwo(){
+  let c = ranmnumbers() 
+   document.getElementById("output1").innerHTML = c;
+
+
+}
+// random3
+function randnumberthree(){
+  let c = ranmnumbers() 
+   document.getElementById("output2").innerHTML = c;
+
+
+}
+
+
+
+
+
+
+
+
+// fulname touppercase
+
+   function fullname() {
+  let name = document.getElementById("one-input").value;
+ let words = name.split(" ");
+ 
+  let firstName = words[0];
+    let middleName = words[1];
+    let lastName = words[2];
+ 
+    firstName = firstName.charAt(0).toUpperCase() + firstName.slice(1);
+    middleName = middleName.charAt(0).toUpperCase() + middleName.slice(1);
+    lastName = lastName.charAt(0).toUpperCase() + lastName.slice(1);
+ 
+    let showname = firstName + " " + middleName + " " + lastName;
+ 
+    return showname;
+}
+
+      function fullnames() {
+        let a = fullname();
+     console.log(a)
+      }
+// name year
+
+function name(){
+   const name = document.getElementById("one-input").value;
+   let namemess = name.charAt(0).toUpperCase()+name.slice(1);
+   return namemess
+}
+function year(){
+  const name = document.getElementById("one-input").value;
+  let date =  new Date("2025-08-03")
+  let year = date.getDate()
+     return year
+}
+function welcome(){
+  let a = name()
+  let b = year()
+let c = randomnumber()
+ console.log( " welcome " + a + " !" + " the year is " + b )
+
+
+}
+
+// name age random number
+
+function name(){
+   const name = document.getElementById("one-input").value;
+   let namemess = name.charAt(0).toUpperCase()+name.slice(1);
+   return namemess
+}
+
+function age(){
+  const today = new Date("2025-08-03");
+   const birth = new Date("2006-05-31");
+  let years = today.getFullYear() - birth.getFullYear();
+     return years
+}
+function ranmnumber(){
+  let numbers = Math.floor(Math.random() * 10000);
+  return numbers;
+}
+
+function date(){
+  let a = name()
+  let b = age()
+  let c = ranmnumber() 
+ console.log( " welcome " + a + " !" + " the age is " + b + "your user id is" + c )
+
+
+}
+
+
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,106 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Time Stamp</title>
+    <style>
+      body {
+        font-family: 'Segoe UI', sans-serif;
+        background-color: #f0f8ff;
+        text-align: center;
+        padding-top: 50px;
+      }
+
+      input[type="text"] {
+        padding: 10px;
+        width: 250px;
+        font-size: 16px;
+        border: 2px solid #888;
+        border-radius: 5px;
+        margin-bottom: 20px;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+
+      button:hover {
+        background-color: #45a049;
+      }
+
+      h1 {
+        font-size: 20px;
+        color: #333;
+        margin-top: 30px;
+        line-height: 1.5;
+      }
+    </style>
+  </head>
+  <body>
+    <input type="text" id="input" placeholder="Type something..." />
+    <br />
+    <button onclick="getday()">Submit Button</button>
+    <h1 id="display"></h1>
+
+    <script>
+//       function getday() {
+//         const date = new Date("2025-08-02");
+//         const day = date.getDate();
+//         const week = date.getDay(); 
+//         const year = date.getFullYear();
+//         const month = date.getMonth() ;
+
+//         const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+//        const months = ["jan", "feb", "mar", "arp", "may", "june", "junly","aug","sep","oct","nov","dec"];
+       
+//  alert("date is " +day + "\n" + "week is " + days[week] + "\n" +"year is" +year  + "\n" + "month is" + months[month] )
+//       }
+function getday() {
+          const today = new Date();
+          const birth = new Date("2006-05-31");
+            
+          let years = today.getFullYear() - birth.getFullYear();
+          let months = today.getMonth() - birth.getMonth();
+          let days = today.getDate() - birth.getDate();
+
+            console.log( years , months , days)
+          }
+    </script>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Capitalize Full Name</title>
+  </head>
+  <body>
+    <label for="fullname">Enter Full Name:</label>
+    <input type="text" id="fullname" />
+    <button onclick="capitalizeName()">Convert</button>
+ 
+    <h3>Formatted Name:</h3>
+    <p id="output"></p>
+ 
+    <script>
+      function capitalizeName() {
+        const input = document.getElementById("fullname").value;
+        const words = input.trim().split(/\s+/);
+ 
+        const capitalizedWords = words.map((word) => {
+          return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+        });
+ 
+        const result = capitalizedWords.join(" ");
+        document.getElementById("output").textContent = result;
+      }
+    </script>
+  </body>
+</html>

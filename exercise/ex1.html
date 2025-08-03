@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Front-end</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f4f6f8;
+      color: #333;
+      padding: 40px 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 600px;
+      width: 100%;
+      background: #ffffff;
+      padding: 30px 20px;
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+      color: #d88a15;
+      font-size: 28px;
+      margin-bottom: 15px;
+    }
+
+    p {
+      text-align: center;
+      font-size: 16px;
+      color: #555;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+    input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+    }
+
+
+    button {
+      padding: 10px 20px;
+      margin: 10px 5px 0 0;
+      background-color: #d88a15;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #bb8b43;
+    }
+
+    #output {
+      margin-top: 20px;
+      padding: 15px;
+      background-color: #e8f0fe;
+      color: #333;
+      border-left: 4px solid #d88a15;
+      border-radius: 5px;
+      font-size: 17px;
+    }
+
+    @media (max-width: 600px) {
+      h1 {
+        font-size: 24px;
+      }
+
+      button {
+        width: 100%;
+        margin-top: 10px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>DEVELOPMENT</h1>
+    <p>
+      Front-end developers focus on ensuring that
+      the user experience is smooth, responsive, and accessible across different devices and browsers.
+    </p>
+
+    <input type="text" id="one-input" placeholder="Enter a message" />
+
+
+    <div style="margin-top: 10px;">
+
+      <button onclick="number()">submit</button>
+      <button onclick="student()">submit2</button>
+      <button onclick="jony()">submit3</button>
+      <button onclick="year()">submit4</button>
+      <button onclick="admin()">submit5</button>
+      <button onclick="evennum()">submit6</button>
+      <button onclick="check()">submit7</button>
+    <button onclick="welcome()">message</button>
+
+    </div>
+
+    <div id="output"></div>
+
+  </div>
+
+  <script>
+
+
+
+
+
+
+
+
+
+    // ex 1
+    function number() {
+      const numb = document.getElementById("one-input").value;
+      if (numb >= 0) {
+        alert("pos")
+      } else if (numb <= 0) {
+        alert("neg")
+      }
+    }
+
+
+
+    // ex 2
+
+    function student() {
+      const numb = document.getElementById("one-input").value;
+      if (numb >= 13 && numb <= 19) {
+        alert("higherschool")
+      }
+    }
+
+    // ex 3
+
+    function jony() {
+      const numb = document.getElementById("one-input").value;
+      if (numb == "jony") {
+        alert("input is valid")
+      }
+    }
+
+    // ex 4
+
+    function year() {
+      const numb = document.getElementById("one-input").value;
+      if (numb % 4 == 0 && numb % 100 != 0)
+        alert("it is leap year ")
+      else {
+        alert("it is not leap year")
+      }
+    }
+
+    // ex 5 
+    function admin() {
+      const numb = document.getElementById("one-input").value;
+      if (numb == "addmin" || numb == "superuser") {
+        alert("authorized")
+      } else {
+        alert(" unauthorized  ")
+      }
+    }
+
+    // ex 6
+    function evennum() {
+      const numb = document.getElementById("one-input").value;
+      if (numb > 0 && numb % 2 == 0) {
+        alert("number postive and even")
+      } else if (numb < 0 && numb % 2 != 0) {
+        alert("number negative and odd")
+      } else if (numb < 0 && numb % 2 == 0) {
+        alert("number negative and even")
+      } else if (numb > 0 && numb % 2 != 0) {
+        alert("number positive and odd")
+      }
+    }
+
+    // ex 7
+    function check() {
+      let a = document.getElementById("one-input").value;
+      let result = checknumber(a);
+      alert(result);
+    }
+    
+    function check() {
+      const numb = document.getElementById("one-input").value;
+      if (numb == "true") {
+        alert("yes")
+      } else if (numb == "false") {
+        alert("no")
+      } else {
+        alert("null")
+      }
+
+    }
+
+    // ex 8
+//     function welcome(){
+//  const numb = document.getElementById("one-input").value;
+//  let a = numb.charAt(0).toUpperCase()+numb.slice(1);
+//  let date =  new Date("2025-08-03")
+//  let year = date.getFullYear()
+//  let names = " wel come " + a + " !" + " the year is " + year
+//  alert(names)
+
+// }
+    
+
+function name(){
+   const name = document.getElementById("one-input").value;
+   let namemess = name.charAt(0).toUpperCase()+name.slice(1);
+   return namemess
+}
+
+function year(){
+  const name = document.getElementById("one-input").value;
+  let date =  new Date("2025-08-03")
+  let year = date.getFullYear()
+     return year
+}
+
+function welcome(){
+  let a = name()
+  let b = year()
+
+ console.log( " welcome " + a + " !" + " the year is " + b)
+
+
+}
+
+  </script>
+</body>
+
+</html>

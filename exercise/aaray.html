@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+</head>
+<body>
+    <h1 id="display"></h1>
+
+    <button onclick="addingPush()">Push</button>
+    <button onclick="addingUnshift()">Unshift</button>
+    <button onclick="removingPop()">Pop</button>
+    <button onclick="slicingArray()">Slice</button>
+    <button onclick="splicingArray()">Splice</button>
+
+    <script>
+       
+        let studentName = ["himanshu", "bhushan", "praful", "rohit","ayush N","Aryan "];
+        function addingPush() {
+            studentName.push();
+            document.getElementById("display").innerHTML = studentName;
+        }
+
+        function addingUnshift() {
+            studentName.unshift("ayush L");
+             document.getElementById("display").innerHTML= studentName;
+        }
+
+        function removingPop() {
+            studentName.pop();
+             document.getElementById("display").innerHTML = studentName;
+        }
+
+        function slicingArray() {
+              const newStudents = studentName.slice(2,5)
+               document.getElementById("display").innerHTML = newStudents;
+        }
+
+function splicingArray(){
+    studentName.splice(2,1,"mayan","ayush b");
+    document.getElementById("display").innerHTML =  studentName;
+}
+
+
+    </script>
+</body>
+</html>
